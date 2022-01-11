@@ -31,14 +31,13 @@ void keyPressed() {
   if ( key == 'p' ) {
     if ( song1.isPlaying() ) {
       song1.pause();
-      } else {
-        song1.play();
-        if ( song1.position() == song1.length() ) {
+      } else if ( song1.position() == song1.length()-1000 ) {
         song1.rewind();
         song1.play();
+        } else {
+          song1.play();
         }
       }
-    }
 } //End KeyPressed
 
 void mousePressed() {
