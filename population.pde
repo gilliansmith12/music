@@ -5,4 +5,5 @@ void population() {
   powerButtonHeight = displayHeight*1/16;
   //
   font = createFont ("Jomolhari", 14);
+  //
 } //End Population

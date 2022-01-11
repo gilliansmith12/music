@@ -19,13 +19,27 @@ void setup() {
   textSetup();
   //
   minim = new Minim(this);
-  song1 = minim.loadFile("Tropic Fuse - French Fuse.mp3");
-  song1.play(); //number in the bracket starts it ___ miliseconds in
+  song1 = minim.loadFile("media/Tropic Fuse - French Fuse.mp3");
+  //song1.play(); //number in the bracket starts it ___ miliseconds in
 } //End Setup
 
 void draw() {
   powerButtonDraw();
 } //End Draw
+
+void keyPressed() {
+  if ( key == 'p' ) {
+    if ( song1.isPlaying() ) {
+      song1.pause();
+      } else {
+        song1.play();
+        if ( song1.position() == song1.length() ) {
+        song1.rewind();
+        song1.play();
+        }
+      }
+    }
+} //End KeyPressed
 
 void mousePressed() {
   powerButtonMousePressed();
