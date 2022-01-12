@@ -28,16 +28,41 @@ void draw() {
 } //End Draw
 
 void keyPressed() {
-  if ( key == 'p' ) {
+  if ( key == 'p' || key == 'P' ) {
     if ( song1.isPlaying() ) {
       song1.pause();
-      } else if ( song1.position() == song1.length()-1000 ) {
+      } else if ( song1.position() >= song1.length()-1000 ) {
         song1.rewind();
         song1.play();
         } else {
           song1.play();
         }
       }
+  // Play - Stop
+  if ( key == 's' ) {
+    if ( song1.isPlaying() ) {
+      song1.pause();
+      song1.rewind();
+      } else {
+        song1.rewind();
+      }
+  }
+  // Fast Forward
+  if ( key == 'f' ) {
+    song1.skip(5000);
+  }
+  // Fast Rewind
+  if ( key == 'r' ) {
+    song1.skip(-5000);
+  }
+  // Mute
+  if ( key == 'm' ) {
+    if ( song1.isMuted() ) {
+      song1.unmute();
+      } else {
+        song1.mute();
+      }
+    }
 } //End KeyPressed
 
 void mousePressed() {
