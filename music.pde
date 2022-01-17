@@ -10,7 +10,9 @@ import ddf.minim.ugens.*;
 
 //Global Variables
 Minim minim; //creates object to access all functions
-AudioPlayer song1; //creates "Play List" variable dholding extensions WAV, AIFF, AU, SND, and MP3
+int numberOfSongs = 3;
+AudioPlayer[] song = new AudioPlayer[numberOfSongs]; //creates "Play List" variable dholding extensions WAV, AIFF, AU, SND, and MP3
+int currentSong = numberOfSongs-numberOfSongs; //Current Song is 0
 
 void setup() {
   fullScreen();
@@ -19,7 +21,9 @@ void setup() {
   textSetup();
   //
   minim = new Minim(this);
-  song1 = minim.loadFile("media/Tropic Fuse - French Fuse.mp3");
+  song[currentSong] = minim.loadFile("media/Tropic Fuse - French Fuse.mp3");
+  song[currentSong+1] = minim.loadFile("media/Oman Groomer - Mini Vandals.mp3");
+  song[currentSong+2] = minim.loadFile("media/In Memory of Jean Talon - Mini Vandals.mp3");
   //song1.play(); //number in the bracket starts it ___ miliseconds in
 } //End Setup
 
