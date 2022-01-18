@@ -46,6 +46,18 @@ void keyPressed() {
         arrayFixError();
       }
   } //End Next Button
+  //
+  if ( key == 'p' || key == 'P' ) {
+    if ( song[currentSong].isPlaying() ) {
+      song[currentSong].pause();
+      song[currentSong].rewind();
+      arrayFixError2();
+      song[currentSong].play();
+      } else {
+        song[currentSong].rewind();
+        arrayFixError2();
+      }
+  } //End Next Button
   //Play / Pause Button
   // if ( key == 'p' || key == 'P' ) {
   //   if ( song1.isPlaying() ) {
