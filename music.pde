@@ -29,6 +29,17 @@ void setup() {
 
 void draw() {
   powerButtonDraw();
+  //
+  if ( song[currentSong].position() >= song[currentSong].length()-500 ) {
+    song[currentSong].pause();
+    song[currentSong].rewind();
+    currentSong++;
+    if ( currentSong < numberOfSongs ) song[currentSong].play();
+  }
+  if ( currentSong == numberOfSongs ) {
+    currentSong = numberOfSongs - numberOfSongs;
+    song[currentSong].play();
+  }
 } //End Draw
 
 void keyPressed() {
